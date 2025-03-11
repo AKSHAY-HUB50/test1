@@ -1,0 +1,136 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <style>
+        body {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            max-width: 210px;
+            text-align: center;
+            padding: 20px;
+            border-radius: 12px;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .title {
+            color: grey;
+            font-size: 18px;
+        }
+
+        button {
+            border: none;
+            outline: 0;
+            padding: 10px;
+            color: white;
+            background: #2575fc;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+            border-radius: 6px;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #1a5fd1;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 24px;
+            color: #2575fc;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #2f4a76;
+        }
+
+        #contact-info {
+            font-size: 16px;
+            display: none;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            width: 80%;
+        }
+
+        .close-btn {
+            margin-top: 10px;
+            background: red;
+        }
+
+        .close-btn:hover {
+            background: darkred;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <img src="myphoto.jpeg" alt="Akshay Badiger" style="width: 100%;height: 40%; border-radius: 10px;" />
+        <h2>Akshay Badiger</h2>
+        <p class="title">Bengaluru</p>
+        <p>Karnataka</p>
+        <div style="margin: 24px 0px">
+            <a href="https://t.me/learningocean"><i class="fa fa-telegram"></i></a>
+            <a href="https://www.linkedin.com/in/akshay-badiger-669aa2159/"><i class="fa fa-linkedin"></i></a>
+            <a href="https://bitbucket.org/springboot_project_by_akshay/workspace/overview/"><i
+                    class="fa fa-github"></i></a>
+        </div>
+        <button onclick="toggleContact()">Contact</button>
+        <button onclick="downloadResume()">Download Resume</button>
+        <div id="contact-info">
+            <p><strong>📧 Email:</strong> akshaybadiger007@gmail.com</p>
+            <p><strong>📞 Phone:</strong> +91 9611685421</p>
+            <button class="close-btn" onclick="toggleContact()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleContact() {
+            var contactInfo = document.getElementById("contact-info");
+            if (contactInfo.style.display === "none" || contactInfo.style.display === "") {
+                contactInfo.style.display = "block";
+            } else {
+                contactInfo.style.display = "none";
+            }
+        }
+
+        function downloadResume() {
+            var link = document.createElement("a");
+            link.href = "resume.pdf"; // Ensure your resume file is in the same directory or provide the correct path
+            link.download = "resume.pdf";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+</body>
+
+</html>
